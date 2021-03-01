@@ -38,6 +38,17 @@ int inputParameters(double* x, double* y, float* radius)
 		}
 	}
 	
+	if (similar)
+	{
+		for (i = 0; str[i] != '\0'; i++)
+		{
+			if ((isalpha(str[i]) || str[i] == '(' || str[i] == ')') || (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '(' || !isdigit(str[i - 1]))))
+			{
+				memmove(&str[i], &str[i + 1], strlen(str) - i);	
+				i--;
+			}	
+		}
+	}
 	return 0;
 }
 
