@@ -99,6 +99,13 @@ int inputParameters(double* x, double* y, float* radius)
 				h++;
 			}
 		}
+		
+		if (correct)
+		{
+			*x = atof(&xArr);
+			*y = atof(&yArr);
+			*radius = atof(&radArr);
+		}	
 	}
 	return 0;
 }
