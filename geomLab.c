@@ -48,6 +48,57 @@ int inputParameters(double* x, double* y, float* radius)
 				i--;
 			}	
 		}
+		int checker = 1, h = 0;
+		bool correct = true;
+		
+		for (i = 0; i < strlen(str); i++)
+		{
+			if (str[i] == ' ')
+			{
+				if (checker == 1)
+				{
+					checker++;
+					h = 0;
+				}
+				else
+				{
+					printf("Incorrect input\n");
+					return 1;
+					correct = false;
+					break;
+				}
+			}
+			else if (str[i] == ',')
+			{
+				if (checker == 2)
+				{
+					checker++;
+					h = 0;
+				}
+				else
+				{
+					printf("Incorrect inpu\n");
+					return 1;
+					correct = false;
+					break;
+				}
+			}
+			else if (checker == 1 && isdigit(str[i]))
+			{
+				xArr[h] = str[i];
+				h++;
+			}
+			else if (checker == 2 && isdigit(str[i]))
+			{
+				yArr[h] = str[i];
+				h++;
+			}
+			else if (checker == 3 && isdigit(str[i]))
+			{
+				radArr[h] = str[i];
+				h++;
+			}
+		}
 	}
 	return 0;
 }
