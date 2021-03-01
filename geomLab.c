@@ -137,5 +137,19 @@ int main()
 	printf("perimeter = %.3f, area = %.3f\n", P2, S2);
 	printf("\n");
 	
+	float a = pow(abs(x1 - x2), 2);
+	float b = pow(abs(y1 - y2), 2);
+	float sum = a + b;
+	
+	float length = sqrt(sum);
+	float rSum = radius1 + radius2;
+	
+	if (length == rSum)
+		printf("intersects: 1. circle\n");
+	else if (length < rSum)
+		printf("intersects: 2. circle\n");
+	else if (length > rSum)
+		printf ("intersexts: 0\n");
+	
 	return 0;
 }
