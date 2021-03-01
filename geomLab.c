@@ -6,6 +6,37 @@
 
 int inputParameters(double* x, double* y, float* radius)
 {
+	char str[32];
+	char* ptr;
+	
+	char xArr[8] = {};
+	char yArr[8] = {};
+	char radArr[8] = {};
+		
+	char circleCheck[16] = "circle";
+	
+	printf("Input 'circle ', coordinates and radius:\n");
+	ptr = gets(str);
+	
+	int arrSize = 0;
+	
+	arrSize = strlen(str);
+	printf("Array size: %d\n", arrSize);
+	
+	bool similar = true;
+	int errorCol;
+	
+	int i; 
+	for (i = 0; similar == true && i < 6; i++)
+	{
+		if (str[i] != circleCheck[i])
+		{
+			similar = false;
+			errorCol = i + 1;
+			printf("Error coloumn: %d; Expected: '%s'\n", errorCol, circleCheck);
+			return 1;
+		}
+	}
 	
 	return 0;
 }
